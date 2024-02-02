@@ -7,22 +7,21 @@ function draw() {
       ctx.save();
       drawbackDrop(ctx, 0, 0);
       drawMountainAt(ctx,0,500);
-      drawCloudAt(ctx,500, 100,40);
+      drawCloudAt(ctx,300, 100,40);
       drawSunAt(ctx,20,20,75);
       drawTreeAt(ctx,200,425,90,20,30);
       drawGroundAt(ctx, 0, 500, 800, 100);
-      drawTankAt(ctx,700,500);
-      drawHouseAt(ctx,50,390);
-      drawGrassAt(ctx,225,500);
+      drawHouseAt(ctx,300,390);
+      drawGrassAt(ctx,0,500);
       ctx.font = "30px Arial";
-      ctx.fillText("siege!", 300, 250);
+      ctx.fillText("Home", 300, 250);
       ctx.restore();
     }
   }
   
   
   function drawGrassAt(ctx, x, y) {
-    for (var i = 0; i < 32; i++) {
+    for (var i = 0; i < 100; i++) {
       ctx.beginPath();
       ctx.moveTo(x,y);
       ctx.lineTo(x+10,y);
@@ -47,13 +46,13 @@ function draw() {
     ctx.fillRect(x, y, 800, 600);
   }
   function drawHouseAt(ctx, x, y) {
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "brown";
     ctx.fillRect(x, y, 100, 110);
   
     ctx.beginPath();
-    ctx.moveTo(x,y);
-    ctx.lineTo(150,390);
-    ctx.lineTo(100,320);
+    ctx.moveTo(x+100,y);
+    ctx.lineTo(300,390);
+    ctx.lineTo(350,320);
     ctx.fillStyle = "orange";
     ctx.fill();
   
@@ -71,13 +70,12 @@ function draw() {
   }
   function drawMountainAt(ctx,x,y){
     ctx.beginPath();
-    ctx.moveTo(x,y);
-    ctx.lineTo(600,300);
-    ctx.lineTo(800,500);
+    ctx.moveTo(x+300,y);
+    ctx.lineTo(600,200);
+    ctx.lineTo(800,600);
     ctx.fillStyle = "gray";
     ctx.fill();
   }
-  
   function drawTreeAt(ctx,x,y,height,width,radius) {
      ctx.fillStyle= "brown";
      ctx.fillRect(x, y, width,height);
@@ -92,26 +90,4 @@ function draw() {
     ctx.fillRect(x, y, height, width) ;
   }
   
-  function drawTankAt(ctx,x,y){
-    ctx.fillStyle="silver";
-    ctx.beginPath();
-    ctx.moveTo(x,y);
-    ctx.lineTo(x-150,y);
-    ctx.lineTo(x-175,y-35);
-    ctx.lineTo(x+20,y-45);
-    ctx.closePath();
-    ctx.moveTo(x-130,y-38);
-    ctx.lineTo(x-110,y-80);
-    ctx.lineTo(x-20,y-75);
-    ctx.lineTo(x-10,y-44);
-    ctx.closePath();
-    ctx.moveTo(x-125,y-50);
-    ctx.lineTo(x-220,y-55);
-    ctx.lineTo(x-220,y-65);
-    ctx.lineTo(x-115,y-70);
-    ctx.closePath();
-    ctx.fillStyle = "red";
-    ctx.fill();
-    ctx.stroke();
-  }
   draw()
