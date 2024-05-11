@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Machine</title>
+    <style>
+        /* Basic styling for the container and buttons */
+        #sound-machine {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        a{
+            background-color: #333; /* Dark background for the link */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px; /* Rounded corners for the link */
+            text-decoration: none; /* Remove underline */
+            margin-top: 20px; /* Add some space above the link */
+            transition: all 0.2s ease-in-out; /* Smooth hover effect */
+        }
+    
+        a:hover {
+          background-color: #222; /* Darker background on hover */
+        }
+        /* Optional styles for different button types (music/sound effects) */
+        .music {
+            background-color: lightblue;
+        }
+
+        .sound-effect {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div id="sound-machine">
+        <button class="music" data-sound="../resources/pop.mp3">Upbeat Pop</button>
+        <button class="music" data-sound="../resources/rock.mp3">Rock and Roll</button>
+        <button class="sound-effect" data-sound="../resources/guitar.mp3">Guitar</button>
+        <button class="sound-effect" data-sound="../resources/level_up.mp3">Level up</button>
+        <button class="sound-effect" data-sound="../resources/waterphone.mp3">waterphone</button>
+        
+    </div>
+    <a href="/index.html">Back to Main Page</a>
+    
+    <script src="audio.js"></script>
+</body>
+</html>
