@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>My Website</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    h1 {
+      font-size: 3rem; /* Using rem for responsiveness */
+      color: #333;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-top: 0; /* Remove top margin for better flow */
+    }
+    
+    ul {
+      list-style: none; /* Remove default bullet points */
+      padding: 0;
+      margin: 0;
+    }
+    
+    li {
+      display: inline-block; /* Display links inline side-by-side */
+      margin: 10px;
+    }
+    
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s ease-in-out; /* Add smooth hover effect */
+    }
+    
+    a:hover {
+      color: #0056b3; /* Change color on hover */
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; margin: 20px;">
-  <h1 style="font-size: 30px; color: #333;">CISC 3610 Portfolio</h1>
-  <h2 style="margin-top: 20px;">Homeworks</h2>
-  <a href="Homework/fruit_data.html" style="color: #007bff; text-decoration: none; font-weight: bold;">Fruit Chart</a>
-  <h2 style="margin-top: 20px;">Projects</h2>
-  <a href="Projects/cartoon_page.html" style="color: #007bff; text-decoration: none; font-weight: bold;">Cartoon Drawing</a>
+<body>
+  <h1>CISC 3610 Portfolio</h1>
+  <h2>Homeworks</h2>
+  <ul>
+    <li><a href="Homework/fruit_data.html">Fruit Chart</a></li>
+  </ul>
+  <h2>Projects</h2>
+  <ul>
+    <li><a href="Projects/cartoon_page.html">Cartoon Drawing</a></li>
+    <li><a href="Projects/animation.html">Animation</a></li>
+  </ul>
 </body>
 </html>

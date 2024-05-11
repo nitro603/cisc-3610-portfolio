@@ -1,18 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Parrot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprite Sheet Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Set minimum height for full viewport */
+      margin: 0; /* Remove default body margin */
+      background-color: #f5f5f5; /* Light gray background */
+    }
 
-<!--The <SCRIPT> tags are processed as they are encountered. -->
-<script src="parrot.js"></script>
-<script src="animation.js"></script>
+    #myCanvas {
+      border: 1px solid #ddd; /* Add a subtle border to the canvas */
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    a {
+      background-color: #333; /* Dark background for the link */
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px; /* Rounded corners for the link */
+      text-decoration: none; /* Remove underline */
+      margin-top: 20px; /* Add some space above the link */
+      transition: all 0.2s ease-in-out; /* Smooth hover effect */
+    }
+
+    a:hover {
+      background-color: #222; /* Darker background on hover */
+    }
+  </style>
 </head>
-
 <body>
-<div id="scene" style = "text-align:center;">
-<canvas id="myCanvas" width="960" height="480"></canvas>
-</div>
+  <canvas id="myCanvas" width="1080" height="100"></canvas>
+  <a href="/index.html">Back to Main Page</a>
+  <script src="animation.js"></script>
 </body>
 </html>

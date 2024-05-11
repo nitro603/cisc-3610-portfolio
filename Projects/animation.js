@@ -1,65 +1,52 @@
-"use strict";
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
 
-var Scene = {
-    canvas : undefined,
-    canvasContext : undefined,
-	sprite: undefined
-};
+// Replace with the URL of your sprite sheet
+const spriteSheet = new Image();
+spriteSheet.src = '../resources/spritesheet.jpg';
 
-Scene.start = function () {
-	// Get the canvas and it's context.
-    Scene.canvas = document.getElementById("myCanvas");
-    Scene.canvasContext = Scene.canvas.getContext("2d");
-	
-	// Seup the parrot to be displayed.
-    Scene.sprite = parrot;
-	
-	// Attach the image to be used for the sprite.
-	Scene.sprite.img = new Image();
-    Scene.sprite.img.src = Scene.sprite.src;
-	
-	// Wait till the parrot image is loaded before starting the animation.
-	Scene.sprite.img.onload = function() {		
-		Scene.sprite.offset=-Scene.sprite.frames[Scene.sprite.frame].frame.w;
-    	Scene.mainLoop();
-	}
-};
+// Define variables for animation properties
+let frameWidth = 83;
+let frameHeight = 94;
+let currentFrame = 0;
+let animationSpeed = 100;
+let spriteX = 0; // New variable for sprite's X position
 
-// Once the basic HTML document is loaded and its parsing has taken place, start the scene.
-document.addEventListener( 'DOMContentLoaded', Scene.start);
+// Function to draw the animation frame
+function drawSprite() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before drawing
 
-Scene.clearCanvas = function () {
-    Scene.canvasContext.fillStyle = "white";
-    Scene.canvasContext.fillRect(0, 0, Scene.canvas.width, Scene.canvas.height);
-};
+  // Calculate source coordinates for the current frame
+  const sx = currentFrame * frameWidth;
+  const sy = 0; // Assuming all frames are on the first row
 
-Scene.mainLoop = function() {
-    Scene.clearCanvas();
-    Scene.update();
-    Scene.draw();
-	
-	// Animate at 24 frames a second.
-    window.setTimeout(Scene.mainLoop, 1000 /24);
-};
+  // Draw the current frame onto the canvas, considering spriteX
+  ctx.drawImage(spriteSheet, sx, sy, frameWidth, frameHeight, spriteX, 0, frameWidth, frameHeight);
+}
 
-Scene.update = function () {
-	// Set the canvas width to be that of the display Window. Which helps if you resize the window.
-  	Scene.canvas.width = window.innerWidth;
-	
-	// Set the location of the next frame. 
-  	Scene.sprite.offset+=24;
-	if(Scene.sprite.offset>Scene.canvas.width)
- 		Scene.sprite.offset=-Scene.sprite.frames[Scene.sprite.frame].frame.w;
-};
+// Function to update animation frame and position
+function updateAnimation() {
+  currentFrame++;
 
-Scene.draw = function () {
-	Scene.canvasContext.drawImage(Scene.sprite.img,Scene.sprite.frames[Scene.sprite.frame].frame.x,Scene.sprite.frames[Scene.sprite.frame].frame.y,Scene.sprite.frames[Scene.sprite.frame].frame.w,Scene.sprite.frames[Scene.sprite.frame].frame.h,Scene.sprite.offset,0,Scene.sprite.frames[Scene.sprite.frame].frame.w,Scene.sprite.frames[Scene.sprite.frame].frame.h);
-	
-	// Advance to the next frame.
-	Scene.sprite.frame++;
+  // Reset frame index if animation reaches the end
+  if (currentFrame >= spriteSheet.width / frameWidth) {
+    currentFrame = 0;
+  }
 
-	// At the end of the sprite sheet, start at the first frame.
-	if(Scene.sprite.frame==Scene.sprite.frames.length)
-		Scene.sprite.frame=0;
+  // Update spriteX for movement across X-axis
+  spriteX += 10; // Adjust the value for desired speed (positive for right, negative for left)
+
+  // Reset spriteX to starting position when it reaches the canvas edge
+  if (spriteX + frameWidth > canvas.width) {
+    spriteX = 0; // Reset to the left edge (adjust based on your starting position)
+  }
+
+  drawSprite();
+}
+
+// Load the sprite sheet image
+spriteSheet.onload = function() {
+  // Start animation loop after the image is loaded
+  setInterval(updateAnimation, animationSpeed);
 };
 
