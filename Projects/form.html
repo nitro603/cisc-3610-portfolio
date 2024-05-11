@@ -6,132 +6,72 @@
     <title>Compound Interest Calculator</title>
     <style>
         body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url("money.jpg");
+            background-image: url("money.jpg");  /* Replace "money.jpg" with your image path */
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
         }
-        
-        .container {
-            width: 500px;
-            margin: 50px auto;
+        .calculator {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
             padding: 20px;
-            border: 1px solid #ddd;
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8);
+            margin: 100px auto;
+            width: 400px;
         }
-        
-        h1 {
+        h2 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
-        
-        .money-image {
-            width: 100px;
-            height: 100px;
-            display: block;
-            margin: 0 auto;
+        input[type="text"] {
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100%;
         }
-        
-        .form-group {
-            margin-bottom: 15px;
+        .radio-container {
+            margin-bottom: 10px;
         }
-        
-        label {
+        .radio-container label {
             display: block;
             margin-bottom: 5px;
         }
-        
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
+        #result {
+            font-weight: bold;
             margin-top: 10px;
-            margin-right: 10px;
         }
-        
-        #calculate-button {
-            background-color: #4CAF50;
+        a {
+            background-color: #333; /* Dark background for the link */
             color: white;
-        }
-        
-        #reset-button {
-            background-color: #f44336;
-            color: white;
-        }
-        
-        #results {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-        }
-        
-        #monthly-payment-container {
-            margin-bottom: 15px;
-        }
-        
-        #monthly-payment-amount {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        
-        
-    </style>>
+            padding: 10px 20px;
+            border-radius: 5px; /* Rounded corners for the link */
+            text-decoration: none; /* Remove underline */
+            margin-top: 20px; /* Add some space above the link */
+            transition: all 0.2s ease-in-out; /* Smooth hover effect */
+          }
+      
+          a:hover {
+            background-color: #222; /* Darker background on hover */
+          }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Compound Interest Calculator</h1>
-        <img src="money.jpg" alt="Money Image" class="money-image">
-        <form id="compound-interest-form">
-            <div class="form-group">
-                <label for="principal">Principal Amount:</label>
-                <input type="number" id="principal" name="principal" min="0" required>
-            </div>
-            <div class="form-group">
-                <label for="interest-rate">Interest Rate (%):</label>
-                <input type="number" id="interest-rate" name="interest-rate" min="0" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="num-years">Number of Years:</label>
-                <input type="number" id="num-years" name="num-years" min="0" required>
-            </div>
-            <div class="form-group">
-                <label for="compound-frequency">Compounding Frequency:</label>
-                <select id="compound-frequency" name="compound-frequency">
-                    <option value="annual">Annually</option>
-                    <option value="semi-annual">Semi-Annually</option>
-                    <option value="quarterly">Quarterly</option>
-                    <option value="monthly">Monthly</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" id="monthly-payment" name="monthly-payment">
-                <label for="monthly-payment">Include Monthly Payment</label>
-            </div>
-            <div class="form-group" id="monthly-payment-container">
-                <label for="monthly-payment-amount">Monthly Payment Amount:</label>
-                <input type="number" id="monthly-payment-amount" name="monthly-payment-amount" min="0">
-            </div>
-            <button type="button" id="calculate-button">Calculate</button>
-            <button type="button" id="reset-button">Reset</button>
-        </form>
-        <div id="results"></div>
+    <div class="calculator">
+        <h2>Compound Interest Calculator</h2>
+        <label for="principal">Principal Amount ($):</label>
+        <input type="text" id="principal" placeholder="Enter amount">
+        <label for="interest">Interest Rate (%):</label>
+        <input type="text" id="interest" placeholder="Enter rate">
+        <label for="years">Number of Years:</label>
+        <input type="text" id="years" placeholder="Enter years">
+        <div class="radio-container">
+            <label for="compounding">Compounding Frequency:</label>
+            <input type="radio" id="yearly" name="compounding" value="1"> Yearly
+            <input type="radio" id="monthly" name="compounding" value="12"> Monthly
+        </div>
+        <button onclick="calculateInterest()">Calculate</button>
+        <p id="result"></p>
     </div>
+    <a href="/index.html">Back to Main Page</a>
 
     <script src="form.js"></script>
 </body>
