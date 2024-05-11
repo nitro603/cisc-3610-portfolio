@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    <style>
+        body {
+            background-image: url("money.jpg");  /* Replace "money.jpg" with your image path */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 100px auto;
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .radio-container {
+            margin-bottom: 10px;
+        }
+        .radio-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        a {
+            background-color: #333; /* Dark background for the link */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px; /* Rounded corners for the link */
+            text-decoration: none; /* Remove underline */
+            margin-top: 20px; /* Add some space above the link */
+            transition: all 0.2s ease-in-out; /* Smooth hover effect */
+          }
+      
+          a:hover {
+            background-color: #222; /* Darker background on hover */
+          }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Compound Interest Calculator</h2>
+        <label for="principal">Principal Amount ($):</label>
+        <input type="text" id="principal" placeholder="Enter amount">
+        <label for="interest">Interest Rate (%):</label>
+        <input type="text" id="interest" placeholder="Enter rate">
+        <label for="years">Number of Years:</label>
+        <input type="text" id="years" placeholder="Enter years">
+        <div class="radio-container">
+            <label for="compounding">Compounding Frequency:</label>
+            <input type="radio" id="yearly" name="compounding" value="1"> Yearly
+            <input type="radio" id="monthly" name="compounding" value="12"> Monthly
+        </div>
+        <button onclick="calculateInterest()">Calculate</button>
+        <p id="result"></p>
+    </div>
+    <a href="/index.html">Back to Main Page</a>
+
+    <script src="form.js"></script>
+</body>
+</html>
