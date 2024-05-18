@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Permit Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            margin-bottom: 60px;
+        }
+        a {
+          background-color: #333; /* Dark background for the link */
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px; /* Rounded corners for the link */
+          text-decoration: none; /* Remove underline */
+          margin-top: 20px; /* Add some space above the link */
+          transition: all 0.2s ease-in-out; /* Smooth hover effect */
+        }
+    
+        a:hover {
+          background-color: #222; /* Darker background on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Film Permit Data</h2>
+    <div class="chart-container" style="width: 600px; height: 400px;">
+        <canvas id="doughnutChart"></canvas>
+    </div>
+    <div class="chart-container" style="width: 600px; height: 400px;">
+        <canvas id="barChart"></canvas>
+    </div>
+    <a href="../index.html">Back to Main Page</a>
+
+    <script>
+        const doughnutChart = document.getElementById('doughnutChart');
+        const barChart = document.getElementById('barChart');
+
+        const data = {
+            labels: ['Brooklyn', 'Manhattan', 'Queens', 'Bronx'],
+            datasets: [{
+                label: 'Film Permits',
+                data: [7, 8, 2, 3],
+                backgroundColor: ['#f1c40f', '#2ecc71', '#3498db', '#9b59b6']
+            }]
+        };
+
+        const doughnutConfig = {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        };
+
+        // Fix: Set the chart type to 'horizontalBar' for the bar chart
+        const barConfig = {
+            type: 'bar', // Changed from 'bar'
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        };
+
+        new Chart(doughnutChart, doughnutConfig);
+        new Chart(barChart, barConfig);
+    </script>
+</body>
+
+</html>
